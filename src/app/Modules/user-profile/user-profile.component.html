@@ -1,0 +1,36 @@
+<section class="profile_section pt-5 pb-5">
+    <div class="container">
+        <div class="row row-eq-height" *ngIf="userDetails != null">
+            <div class="col col-lg-4">
+                <div class="user-profile pt-3 pb-3">
+                    <div class="user-avtar">
+                        <img src="{{ userDetails.avatarUrl }}" alt="{{ userDetails.firstName + ' ' + userDetails.lastName }}" title="{{ userDetails.firstName + ' ' + userDetails.lastName }}" class="img-thumbnail" />
+                    </div>
+                    <div class="user-details">
+                        <h2 class="font-weight-bold mt-3">My Details</h2>
+                        <h3 class="font-weight-bold font-italic mb-1">Name</h3>
+                        <p class="mb-3">{{ userDetails.firstName + ' ' + userDetails.lastName }}</p>
+                        <h3 class="font-weight-bold font-italic mb-1">Email</h3>
+                        <p class="mb-3">{{ userDetails.email }}</p>
+                        <h3 class="font-weight-bold font-italic mb-1">Mobile</h3>
+                        <p class="mb-3">{{ userDetails.phone }}</p>
+                        <h3 class="font-weight-bold font-italic mb-1">Address</h3>
+                        <p class="mb-3">
+                            {{ userDetails.address['building'] }}, {{ userDetails.address['street'] }}, {{ userDetails.address['city'] }}, {{ userDetails.address['state'] }}, {{ userDetails.address['zipCode'] }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-8">
+                <div class="user-bio">
+                    <h3 class="font-weight-bold font-italic mb-1">A little about me</h3>
+                    <p class="text-justify mb-3">
+                        {{ userDetails.bio }}
+                    </p>
+                    <h3 class="font-weight-bold font-italic mb-1">I live here</h3>
+                    <app-map [LatLong]="userDetails.address['coordinates']"></app-map>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

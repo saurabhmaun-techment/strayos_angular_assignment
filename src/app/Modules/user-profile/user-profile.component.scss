@@ -1,0 +1,11 @@
+.profile_section {
+    .user-profile {
+        border-right: 1px solid var(--grey-color-2);
+        .user-avtar {
+            img {
+                max-width: 120px;
+                border-radius: 100%;
+            }
+        }
+    }
+}
